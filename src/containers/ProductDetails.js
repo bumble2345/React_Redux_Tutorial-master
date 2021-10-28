@@ -9,7 +9,7 @@ import {
 const ProductDetails = () => {
   const { productId } = useParams();
   let product = useSelector((state) => state.product);
-  const { image, title, price,id, category, description } = product;
+  const { image, title, price,id,poster_path, category, description } = product;
   const dispatch = useDispatch();
   const fetchProductDetail = async (id) => {
     const response = await axios
@@ -37,7 +37,7 @@ const ProductDetails = () => {
             <div className="ui vertical divider">AND</div>
             <div className="middle aligned row">
               <div className="column lp">
-                <img className="ui fluid image" src={image} />
+              <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title} />
               </div>
               <div className="column rp">
                 <h1>{title}</h1>
